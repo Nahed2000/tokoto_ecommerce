@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tokoto/screen/forget_password.dart';
 import 'package:tokoto/screen/login_screen.dart';
 import 'package:tokoto/screen/out_boarding.dart';
 
@@ -13,10 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login_screen',
+      initialRoute: '/forget_password_screen',
       routes: {
         '/page_view_screen': (context) => const PageViewScreen(),
         '/login_screen': (context) => const LoginScreen(),
+        '/forget_password_screen': (context) => const ForgetPassword(),
       },
     );
   }

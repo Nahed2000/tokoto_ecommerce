@@ -5,6 +5,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
     this.keyboard = TextInputType.text,
+    this.obscureText = false,
     required this.icon,
     required this.labelText,
     required this.hintText,
@@ -15,13 +16,14 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final String labelText;
   final TextInputType keyboard;
-
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
     return TextField(
         controller: controller,
         keyboardType: keyboard,
         cursorColor: Colors.grey,
+        obscureText: obscureText,
         decoration: InputDecoration(
             suffixIcon: Icon(
               icon,
