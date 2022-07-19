@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tokoto/screen/auth/activity_code_screen.dart';
 import 'package:tokoto/screen/auth/confirm_password.dart';
 import 'package:tokoto/screen/auth/forget_password.dart';
 import 'package:tokoto/screen/auth/register_screen.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/page_view_screen',
+      initialRoute: '/activity_code_screen',
       routes: {
         '/page_view_screen': (context) => const PageViewScreen(),
         '/home_screen':(context) => const HomeScreen(),
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/forget_password_screen': (context) => const ForgetPassword(),
         '/confirm_password_screen': (context) => const ConfirmPassword(),
         '/success_login': (context) => const SuccessLogin(),
+        '/activity_code_screen': (context) => const ActivityCodeScreen(),
       },
     );
   }
