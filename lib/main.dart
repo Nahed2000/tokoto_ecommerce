@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tokoto/screen/auth/confirm_password.dart';
 import 'package:tokoto/screen/auth/forget_password.dart';
+import 'package:tokoto/screen/auth/register_screen.dart';
 import 'package:tokoto/screen/home_screen.dart';
 import 'package:tokoto/screen/auth/login_screen.dart';
 import 'package:tokoto/screen/out_boarding.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/page_view_screen': (context) => const PageViewScreen(),
         '/home_screen':(context) => const HomeScreen(),
         '/login_screen': (context) => const LoginScreen(),
+        '/register_screen': (context) => const RegisterScreen(),
         '/forget_password_screen': (context) => const ForgetPassword(),
         '/confirm_password_screen': (context) => const ConfirmPassword(),
         '/success_login': (context) => const SuccessLogin(),

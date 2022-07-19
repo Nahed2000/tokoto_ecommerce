@@ -31,8 +31,8 @@ class CustomTextField extends StatelessWidget {
             ),
             hintText: hintText,
             label: Container(
-                alignment: Alignment.center,
-                width: 80,
+                alignment: Alignment.centerLeft,
+                width: 200,
                 height: 35,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white, width: 2),
@@ -41,7 +41,7 @@ class CustomTextField extends StatelessWidget {
                 // alignment: Alignment.topLeft,
                 child: Text(
                   labelText,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
+                  style: const TextStyle(fontSize: 15, color: Colors.black),
                   // textAlign: TextAlign.left,
                 )),
             border: OutlineInputBorder(
