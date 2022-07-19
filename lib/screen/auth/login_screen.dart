@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tokoto/utility/helper.dart';
 import 'package:tokoto/widget/custom_button.dart';
 
-import '../widget/custom_text_field.dart';
-import '../widget/social_media_button.dart';
+import '../../widget/custom_text_field.dart';
+import '../../widget/social_media_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> with Helper {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
 
@@ -48,12 +49,12 @@ class _LoginScreenState extends State<LoginScreen> {
           'Sign In',
           style: TextStyle(color: Color(0xff8B8B8B)),
         ),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-          ),
-        ),
+        // leading: IconButton(
+        //   onPressed: () => Navigator.pop(context),
+        //   icon: const Icon(
+        //     Icons.arrow_back_ios_new,
+        //   ),
+        // ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -122,7 +123,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () =>
+                        Navigator.pushNamed(context, '/forget_password_screen'),
                     child: Text(
                       'Forget Password',
                       style: TextStyle(
@@ -133,7 +135,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               const SizedBox(height: 45),
-              CustomButton(onPress: () {}, title: 'Continue'),
+              CustomButton(
+                  onPress: () async => await performLogin(), title: 'Continue'),
               const SizedBox(height: 80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -152,20 +155,23 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Don’t have an account?',
-                    style:TextStyle(
+                  const Text(
+                    'Don’t have an account?',
+                    style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
-                    ),),
+                    ),
+                  ),
                   TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Sing Up',
-                        style:TextStyle(
-                          color: Color(0xffF78143),
-                          fontSize: 16,
-                        ),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, '/register_screen'),
+                    child: const Text(
+                      'Sing Up',
+                      style: TextStyle(
+                        color: Color(0xffF78143),
+                        fontSize: 16,
                       ),
+                    ),
                   ),
                 ],
               )
@@ -174,5 +180,28 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> performLogin() async {
+    if (checkData()) {
+      await login();
+      print(checkData());
+    }
+    print(checkData());
+  }
+
+  bool checkData() {
+    if (_emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      return true;
+    }
+    showSnackBar(context,
+        message: 'Required Data, Please enter your email and password',
+        error: true);
+    return false;
+  }
+
+  Future<void> login() async {
+    Navigator.pushReplacementNamed(context, '/home_screen');
   }
 }

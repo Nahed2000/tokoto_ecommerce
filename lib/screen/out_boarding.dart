@@ -76,10 +76,10 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 onPress: () {
                   setState(() {
                     _pageController.nextPage(
-                        duration: Duration(seconds: 1),
+                        duration: const Duration(seconds: 1),
                         curve: Curves.decelerate);
                     if (currentIndex == 2) {
-                      Navigator.pushNamed(context, '/login_screen');
+                      Navigator.pushReplacementNamed(context, '/login_screen');
                       print('currentIndex $PageViewScreen');
                     }
                   });

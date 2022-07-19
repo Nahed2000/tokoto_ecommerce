@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tokoto/widget/custom_button.dart';
 
-import '../widget/custom_text_field.dart';
-import '../widget/social_media_button.dart';
+import '../../widget/custom_text_field.dart';
+import '../../widget/social_media_button.dart';
 
 class SuccessLogin extends StatefulWidget {
   const SuccessLogin({Key? key}) : super(key: key);

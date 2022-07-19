@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:tokoto/widget/custom_button.dart';
 
-import '../widget/custom_text_field.dart';
-import '../widget/social_media_button.dart';
+import '../../widget/custom_text_field.dart';
+import '../../widget/social_media_button.dart';
 
-class ConfirmPassword extends StatefulWidget {
-  const ConfirmPassword({Key? key}) : super(key: key);
+class ForgetPassword extends StatefulWidget {
+  const ForgetPassword({Key? key}) : super(key: key);
 
   @override
-  State<ConfirmPassword> createState() => _ConfirmPasswordState();
+  State<ForgetPassword> createState() => _ForgetPasswordState();
 }
 
-class _ConfirmPasswordState extends State<ConfirmPassword> {
-  late TextEditingController _passwordController;
+class _ForgetPasswordState extends State<ForgetPassword> {
+  late TextEditingController _emailController;
 
   @override
   void initState() {
     // TODO: implement initState
-    _passwordController = TextEditingController();
+    _emailController = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
-    _passwordController.dispose();
+    _emailController.dispose();
     super.dispose();
   }
 
-
+  bool checkBox = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
           color: Colors.black,
         ),
         title: const Text(
-          'Confirm Password',
+          'Forget Password',
           style: TextStyle(color: Color(0xff8B8B8B)),
         ),
         leading: IconButton(
@@ -61,28 +61,28 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
               mainAxisSize: MainAxisSize.min,
               children: const [
                 Text(
-                  'Confirm Password',
+                  'Forget Password',
                   style: TextStyle(fontSize: 36, color: Colors.black),
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'Please enter your new password ',
+                  'Please enter your email and we will send',
                   style: TextStyle(fontSize: 16, color: Color(0xff757575)),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  '',
+                  'you a link to return to your account',
                   style: TextStyle(fontSize: 16, color: Color(0xff757575)),
                 ),
               ],
             ),
             const SizedBox(height: 80),
             CustomTextField(
-              hintText: 'Please enter your Password',
+              hintText: 'Enter your Email',
               icon: Icons.email_outlined,
-              labelText: 'Password',
+              labelText: 'Email',
               keyboard: TextInputType.text,
-              controller: _passwordController,
+              controller: _emailController,
             ),
             const SizedBox(height: 80),
             CustomButton(onPress: () {}, title: 'Continue'),
